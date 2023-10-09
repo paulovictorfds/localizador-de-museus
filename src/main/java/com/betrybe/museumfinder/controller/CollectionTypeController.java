@@ -33,8 +33,8 @@ public class CollectionTypeController {
 
     if (result.count() > 0) {
       return ResponseEntity.ok(result);
-    } else {
-      return ResponseEntity.notFound().build();
     }
+
+    return ResponseEntity.notFound().build();
   }
 }
