@@ -12,19 +12,6 @@ public class Museum {
   private Coordinate coordinate;
   private Long legacyId;
 
-  /** Constructor. */
-  public Museum(Long id, String name, String description, String address, String collectionType,
-      String subject, String url, Coordinate coordinate) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.address = address;
-    this.collectionType = collectionType;
-    this.subject = subject;
-    this.url = url;
-    this.coordinate = coordinate;
-  }
-
   public Long getId() {
     return id;
   }
