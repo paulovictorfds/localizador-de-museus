@@ -10,6 +10,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/** MuseumService. */
 @Service
 public class MuseumService implements MuseumServiceInterface {
   private final MuseumFakeDatabase museumFakeDatabase;
