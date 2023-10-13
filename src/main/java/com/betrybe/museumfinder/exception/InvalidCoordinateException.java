@@ -3,6 +3,6 @@ package com.betrybe.museumfinder.exception;
 /** InvalidCoordinateException. */
 public class InvalidCoordinateException extends RuntimeException {
   public InvalidCoordinateException() {
-    super("Coordenadas inválidas!");
+    super("Coordenada inválida!");
   }
 }
