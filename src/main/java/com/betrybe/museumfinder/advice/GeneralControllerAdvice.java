@@ -3,28 +3,35 @@ package com.betrybe.museumfinder.advice;
 import com.betrybe.museumfinder.exception.InvalidCoordinateException;
 import com.betrybe.museumfinder.exception.MuseumNotFoundException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 /** ControllerAdvice. */
 @ControllerAdvice
 public class GeneralControllerAdvice {
-  @ExceptionHandler({ InvalidCoordinateException.class })
-  @ResponseStatus(HttpStatus.BAD_REQUEST)
-  public String handleInvalidData(RuntimeException exception) {
-    return exception.getMessage();
+
+  /** InvalidCoordinateException. */
+  @ExceptionHandler(InvalidCoordinateException.class)
+  public ResponseEntity<String> handleInvalidData(InvalidCoordinateException e) {
+    return ResponseEntity
+        .status(HttpStatus.BAD_REQUEST)
+        .body(e.getMessage());
   }
 
-  @ExceptionHandler({ MuseumNotFoundException.class })
-  @ResponseStatus(HttpStatus.NOT_FOUND)
-  public String handleNotFound(RuntimeException exception) {
-    return exception.getMessage();
+  /** MuseumNotFoundException. */
+  @ExceptionHandler(MuseumNotFoundException.class)
+  public ResponseEntity<String> handleNotFound(MuseumNotFoundException e) {
+    return ResponseEntity
+        .status(HttpStatus.NOT_FOUND)
+        .body(e.getMessage());
   }
 
-  @ExceptionHandler({ RuntimeException.class })
-  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-  public String handleInternalError() {
-    return "Erro interno!";
+  /** InternalErrorException. */
+  @ExceptionHandler(RuntimeException.class)
+  public ResponseEntity<String> handleInternalError() {
+    return ResponseEntity
+        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .body("Erro interno!");
   }
 }
